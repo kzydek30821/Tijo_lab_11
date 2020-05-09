@@ -32,8 +32,12 @@ public interface RulesOfGame {
 
         @Override
         public boolean isCorrectMove(int xStart, int yStart, int xEnd, int yEnd) {
-            // TODO: Prosze dokonczyc implementacje
-            return true;
+            if (xStart == xEnd && yStart == yEnd) {
+                return false;
+            }
+            int diffVectorX = Math.abs(xStart-xEnd);
+            int diffVectorY = Math.abs(yStart-yEnd);
+            return (diffVectorX == 1 && diffVectorY == 2) || (diffVectorX == 2 && diffVectorY == 1);
         }
     }
     @Component
@@ -42,12 +46,13 @@ public interface RulesOfGame {
 
         @Override
         public boolean isCorrectMove(int xStart, int yStart, int xEnd, int yEnd) {
-            // TODO: Prosze dokonczyc implementacje
-            return true;
+            if (xStart == xEnd && yStart == yEnd) {
+                return false;
+            }
+            int diffVectorX = Math.abs(xStart-xEnd);
+            int diffVectorY = Math.abs(yStart-yEnd);
+            return (diffVectorX == 0 && diffVectorY == 1) || (diffVectorX == 1 && diffVectorY == 1) || (diffVectorX == 1 && diffVectorY == 0);
         }
     }
 
-    // TODO: Prosze dokonczyc implementacje kolejnych figur szachowych: Knight, King, Queen, Rock, Pawn
-    // TODO: Prosze stosowac zaproponowane nazwy klas !!! (Prowadzacy zajecia posiada wlasne testy)
-    // TODO: Kazda klasa powinna implementowac interfejs RulesOfGame
 }
