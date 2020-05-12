@@ -14,14 +14,23 @@ public class ChessServiceImpl implements ChessService {
     private RulesOfGame bishop;
     private RulesOfGame knight;
     private RulesOfGame king;
+    private RulesOfGame pawn;
+    private RulesOfGame queen;
+    private RulesOfGame rook;
 
     @Autowired
     public ChessServiceImpl(@Qualifier("Bishop") RulesOfGame bishop,
                             @Qualifier("Knight") RulesOfGame knight,
-                            @Qualifier("King") RulesOfGame king) {
+                            @Qualifier("King") RulesOfGame king,
+                            @Qualifier("Pawn") RulesOfGame pawn,
+                            @Qualifier("Queen") RulesOfGame queen,
+                            @Qualifier("Rook") RulesOfGame rook) {
         this.bishop = bishop;
         this.knight = knight;
         this.king = king;
+        this.pawn = pawn;
+        this.queen = queen;
+        this.rook = rook;
     }
 
     @Override
@@ -41,6 +50,12 @@ public class ChessServiceImpl implements ChessService {
                 return this.bishop.isCorrectMove(start[0], start[1], destination[0], destination[1]);
             case KNIGHT:
                 return this.knight.isCorrectMove(start[0], start[1], destination[0], destination[1]);
+            case ROCK:
+                return this.rook.isCorrectMove(start[0],start[1],destination[0],destination[1]);
+            case QUEEN:
+                return this.queen.isCorrectMove(start[0],start[1],destination[0],destination[1]);
+            case PAWN:
+                return this.pawn.isCorrectMove(start[0],start[1],destination[0],destination[1]);
             default:
                 return false;
         }
