@@ -12,10 +12,13 @@ public class PawnTest {
     @Tag("Pawn")
     @ParameterizedTest
     @CsvSource({
-            "2,2,2,4",
-            "2,2,2,3",
-            "5,2,5,4",
-            "5,2,5,3",
+            " 0, 0, 0, 1",
+
+            " 0, 0, 0, -1",
+
+            " 1, 1, 1, 2",
+
+            "-1, 0, -1, 1",
     })
     void checkCorrectMoveForPawn(int xStart, int yStart, int xStop, int yStop){
         assertTrue(pawn.isCorrectMove(xStart,yStart,xStop,yStop));
@@ -24,10 +27,11 @@ public class PawnTest {
     @Tag("Pawn")
     @ParameterizedTest
     @CsvSource({
-            "2,2,2,6",
-            "2,2,2,7",
-            "5,2,5,8",
-            "5,2,5,9",
+            "-1, -1, 1, 10",
+
+            "1, 1, 1, 1",
+
+            "0,  0, 1, 1"
     })
     void checkIncorrectMoveForPawn(int xStart, int yStart, int xStop, int yStop){
         assertFalse(pawn.isCorrectMove(xStart,yStart,xStop,yStop));

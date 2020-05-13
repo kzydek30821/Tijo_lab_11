@@ -13,9 +13,21 @@ public class QueenTest {
     @Tag("Queen")
     @ParameterizedTest
     @CsvSource({
-            "4, 4, 4, 5",
-            "4, 4, 3, 5",
-            "4, 4, 3, 3",
+            " 0,  0,  1, 1",
+
+            " 0,  0,  -1, 0",
+
+            " 0,  0, 0, 1",
+
+            " 0,  0, 0, -1",
+
+            " 0,  0, 10, 10",
+
+            " 1,  1, -1, 3",
+
+            " 0, 0, 0, 200",
+
+            "50, 0, 0, 0"
 
     })
     void checkCorrectMoveForQueen(int xStart, int yStart, int xStop, int yStop) {
@@ -24,9 +36,9 @@ public class QueenTest {
     @Tag("Queen")
     @ParameterizedTest
     @CsvSource({
-            "4, 4, 7 ,8",
-            "4, 4, 1 ,6",
-            "4, 4, 3 ,8",
+            "-1, -1, 1, 10",
+
+            "1, 1, 1, 1"
     })
     void checkIncorrectMoveForQueen(int xStart, int yStart, int xStop, int yStop) {
         assertFalse(queen.isCorrectMove(xStart, yStart, xStop, yStop));

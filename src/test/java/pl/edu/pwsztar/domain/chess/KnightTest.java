@@ -12,23 +12,38 @@ public class KnightTest {
 
     @Tag("Knight")
     @ParameterizedTest
+
     @CsvSource({
-            "4, 4, 3, 2",
-            "2, 1, 3, 3",
-            "7, 1, 6, 3",
+
+            " 0,  0,  1, 2",
+
+            " 0,  0,  2, 1",
+
+            " 0,  0, -1, -2",
+
+            " 0,  1, -2, 0",
 
     })
+
     void checkCorrectMoveForKnight(int xStart, int yStart, int xStop, int yStop) {
+
         assertTrue(knight.isCorrectMove(xStart, yStart, xStop, yStop));
+
     }
-    @Tag("Knight")
+
     @ParameterizedTest
+
     @CsvSource({
-            "4, 4, 3, 5",
-            "2, 1, 4, 6",
-            "7, 1, -6, 9",
+
+            "0, 0, 1, 1",
+
+            "0, 0, 0, 10"
+
     })
+
     void checkIncorrectMoveForKnight(int xStart, int yStart, int xStop, int yStop) {
+
         assertFalse(knight.isCorrectMove(xStart, yStart, xStop, yStop));
+
     }
 }

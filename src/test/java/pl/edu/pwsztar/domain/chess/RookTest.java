@@ -13,9 +13,15 @@ public class RookTest {
     @Tag("Rook")
     @ParameterizedTest
     @CsvSource({
-            "4, 4, 4, 6",
-            "4, 4, 4, 1",
-            "4, 4, 8, 4",
+            " 0,  0, 0, 1",
+
+            " 0,  0, 0, -1",
+
+            " 1,  1, 1, 3",
+
+            " 0, 0, 0, 200",
+
+            "50, 0, 0, 0"
     })
     void checkCorrectMoveForRook(int xStart, int yStart, int xStop, int yStop) {
         assertTrue(rook.isCorrectMove(xStart, yStart, xStop, yStop));
@@ -23,9 +29,11 @@ public class RookTest {
     @Tag("Rook")
     @ParameterizedTest
     @CsvSource({
-            "4, 4, 5, 5",
-            "4, 4, 3, 3",
-            "4, 4, 3, 5",
+            "-1, -1, 1, 10",
+
+            "1, 1, 1, 1",
+
+            "0,  0, 1, 1"
     })
     void checkIncorrectMoveForRook(int xStart, int yStart, int xStop, int yStop) {
         assertFalse(rook.isCorrectMove(xStart, yStart, xStop, yStop));

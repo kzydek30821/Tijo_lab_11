@@ -66,7 +66,7 @@ public interface RulesOfGame {
             }
             int diffVectorX = Math.abs(xStart-xEnd);
             int diffVectorY = Math.abs(yStart-yEnd);
-            return (diffVectorX == 0 && diffVectorY == 1) || (diffVectorX == 0 && diffVectorY == 2) || (diffVectorX == 1 && diffVectorY == 1);
+            return (diffVectorX == 0 && diffVectorY == 1) || (diffVectorX == 0 && diffVectorY == 2);
         }
     }
 
